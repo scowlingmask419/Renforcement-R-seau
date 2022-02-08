@@ -1,0 +1,58 @@
+>>> from graphe import *
+>>> from ameliorations import *
+
+>>> G = Graphe()
+>>> G.nombre_sommets()
+0
+>>> G.nombre_aretes()
+0
+
+>>> G.ajouter_sommet((1, "S1"))
+>>> G.ajouter_sommet((2, "S2"))
+>>> G.nombre_sommets()
+2
+>>> G.nom_sommet(1)
+'S1'
+>>> sorted(G.sommets())
+[1, 2]
+
+>>> G.ajouter_arete(1, 2, "A1")
+>>> G.ajouter_arete(2, 1, "A1")
+>>> G.nombre_aretes()
+1
+>>> G.voisins(1)
+{(2, 'A1')}
+
+
+>>> reseau = Graphe()
+>>> charger_donnees(reseau, "METRO_7b.txt")
+
+>>> reseau.nombre_sommets()
+8
+
+>>> reseau.nombre_aretes()
+8
+
+>>> option_liste_stations(reseau)
+Bolivar (2075)
+Botzaris (2002)
+Buttes-Chaumont (2013)
+Danube (1635)
+Jaurès (1900)
+Louis Blanc (1860)
+Place des Fêtes (1797)
+Pré-Saint-Gervais (1756)
+
+>>> option_ponts(reseau)
+Le reseau contient 4 ponts suivants :
+Bolivar -- Buttes-Chaumont
+Bolivar -- Jaurès
+Botzaris -- Buttes-Chaumont
+Jaurès -- Louis Blanc
+
+>>> option_articulations(reseau)
+Le reseau contient les 4 points articulation suivants :
+1 : Bolivar
+2 : Botzaris
+3 : Buttes-Chaumont
+4 : Jaurès
